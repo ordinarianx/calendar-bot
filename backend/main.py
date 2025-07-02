@@ -32,7 +32,7 @@ load_dotenv()
 app = FastAPI()
 
 # Google Calendar API setup
-KEY_PATH = os.path.join(os.path.dirname(__file__), "credentials", "calendar-bot-sa.json")
+KEY_PATH = os.path.join(os.path.dirname(__file__), "credentials", "calendar-bot-sa.json") or "/etc/secrets/calendar-bot-sa.json"
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 CALENDAR_ID = os.getenv("GOOGLE_CALENDAR_ID")
 AGENT_URL = os.getenv("AGENT_URL", "http://127.0.0.1:8001")
