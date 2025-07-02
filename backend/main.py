@@ -32,7 +32,7 @@ load_dotenv()
 app = FastAPI()
 
 # Google Calendar API setup
-KEY_PATH = os.path.join(os.path.dirname(__file__), "credentials", "calendar-bot-sa.json") or "/etc/secrets/calendar-bot-sa.json"
+KEY_PATH = "/etc/secrets/calendar-bot-sa.json" # production path
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 CALENDAR_ID = os.getenv("GOOGLE_CALENDAR_ID")
 AGENT_URL = os.getenv("AGENT_URL", "http://127.0.0.1:8001")
@@ -41,7 +41,9 @@ if not CALENDAR_ID:
     logging.critical("GOOGLE_CALENDAR_ID environment variable not set.")
     sys.exit(1)
 if not os.path.exists(KEY_PATH):
-    logging.critical(f"Google service account credentials file not found at {KEY_PATH}.")
+    KEY_PATH = os.path.join(os.path.dirname(__file__), "credentials", "calendar-bot-sa.json") # fallback path
+    if not os.path.exists(KEY_PATH):
+        logging.critical(f"Google service account credentials file not found at {KEY_PATH}.")
     sys.exit(1)
 try:
     creds = service_account.Credentials.from_service_account_file(KEY_PATH, scopes=SCOPES)

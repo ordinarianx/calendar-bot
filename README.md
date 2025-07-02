@@ -27,14 +27,14 @@ A conversational assistant to check Google Calendar availability and schedule ev
      ```
    - Agent:  
      ```
-     cd ../agent
+     cd agent
      python -m venv venv
      venv\Scripts\activate
      pip install -r requirements.txt
      ```
    - Frontend:  
      ```
-     cd ../frontend
+     cd frontend
      python -m venv venv
      venv\Scripts\activate
      pip install -r requirements.txt
