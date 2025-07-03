@@ -5,3 +5,9 @@ requests
 uvicorn
 fastapi
 httpx
+langchain-community
+langchain-core
+langchain-text-splitters
+langsmith
+pydantic
+dateparser
