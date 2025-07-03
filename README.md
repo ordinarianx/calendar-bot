@@ -82,8 +82,11 @@ A conversational assistant to check Google Calendar availability and schedule ev
 - For issues, check logs in `backend/calendar-bot.log` and `agent/agent.log`.
 - Ensure all environment variables are set correctly in each service's `.env` file.
 - Make sure the Google service account has access to your calendar.
+  
+## Screenshot
+![30cd9b2b-2c36-4fd8-80ef-49a5d881b9a0](https://github.com/user-attachments/assets/83d4946c-a29e-4bb9-a9ca-595a78e20625)
 
----
-<br>
+
+## Side note
 This application was built to fulfill an assignment requirement and has been successfully completed and deployed.
 
